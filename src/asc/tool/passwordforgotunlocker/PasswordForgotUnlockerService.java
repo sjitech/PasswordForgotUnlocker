@@ -5,7 +5,6 @@ import android.app.Notification;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Handler;
 import android.os.IBinder;
 import android.os.PowerManager;
 import android.os.Process;
@@ -35,24 +34,6 @@ public class PasswordForgotUnlockerService extends Service {
 		// memory)
 		startForeground(Process.myPid(), new Notification());
 
-		new Handler().postDelayed(new Runnable() {
-			public void run() {
-				turnOn();
-			}
-		}, 0);
-		new Handler().postDelayed(new Runnable() {
-			public void run() {
-				turnOn();
-			}
-		}, 5 * 1000);
-		new Handler().postDelayed(new Runnable() {
-			public void run() {
-				turnOn();
-			}
-		}, 10 * 1000);
-	}
-
-	void turnOn() {
 		if (did_addGhostView) {
 			wm.removeView(ghostView);
 			did_addGhostView = false;
